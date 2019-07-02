@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>6月串串产量表</title>
+    <style>
+        /* 16:26 2019/7/1  23:26*/
+        @charset "utf-8";
+        html{color:#000; background:#FFF;}
+        /*body, button, input, select, textarea {
+            font: 12px/18px Arial, Verdana, Microsoft YaHei;
+        }
+        h1 {font-size: 18px;}
+        h2 {font-size: 16px;}
+        h3 {font-size: 14px;}
+        h4, h5, h6 {font-size: 100%;}
+        */
+        body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,
+        th,td,select,option,fieldset,blockquote,figure{margin:0;padding:0}
+        em,i{font-style:normal}
+        li{list-style:none;vertical-align:top}
+        a{text-decoration:none;color: black;border:0}
+        a:hover{text-decoration:underline;}
+        img{border:0;}/*vertical-align:top;*/
+        table{border-collapse:collapse;border-spacing:0;}
+        textarea{resize:none;overflow:auto;outline:none;}
+        input{outline:none;}
+        /*-----清浮动-------------*/
+        .clearfix{zoom:1}
+        .clearfix:after{content:'';display:table;clear:both}
+        /*------左浮动 右浮动------------*/
+        .fl{float:left}
+        .fr{float:right}
+        .cl{clear:left}
+        .cr{clear:right}
+        /*------- 子元素有margin-top ----------*/
+        .cleartm:before{content:'';display:table;}
+
+        q:before,q:after{content: '';content: none;}
+        sub{
+            vertical-align: text-bottom;
+        }
+        /* =============== */
+        body{
+            /* background:#dddcdc */
+           font: 15px/18px Arial, Verdana, Microsoft YaHei;
+
+        }
+        table{
+            border-collapse:collapse;border-spacing:0;
+            width:1072px;
+
+            position:relative;
+            padding:6px;
+            /* overflow: hidden; */
+            margin-left: 18px;
+        }
+        td,th{
+            border:1px dashed #c7bebe;
+            text-align: center;
+            padding:2px;
+            height: 22px;
+            /*   IE浏览器的高不统一*/
+
+        }
+        #each_total{
+            border:1px solid red;
+            width:500px;
+
+        }
+     
+        .erery_totals{
+            background:#5cb85c;
+            color:white;
+        }
+        .all_total{
+            background:#f10215;
+            color:white;
+        }
+        .z_c{
+            background:#5bc0de;
+            color:white;
+        }
+        .j_q{
+            background:#5cb85c;
+            color:white;
+        }
+        .j_s{
+            background:#ec971f;
+            color:white;
+        }
+        .y_d{
+            background:#56c272;
+            color:white;
+        }
+        .j_g{
+            background:#ec971f;
+            color:white;
+        }
+        #head{
+            width:979px;
+            margin-left:18px;
+
+
+        }
+        #head h3{
+            padding:4px;
+            font-size:20px;
+            text-indent:5px;
+            border-bottom:1px dashed #ccc;
+            color:red;
+        }
+        #head div{
+            float:left;
+            margin:4px;
+            padding:6px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .clearfix{zoom:1}
+        .clearfix:after{content:'';display:table;clear:both}
+        .active{
+            background:#f3181d;
+            color:white;
+        }
+        #head div.form_data{
+            /* width:60px;
+            position:absolute;
+            top: 25px;
+            left: 188px;
+            top: 23px;
+            left: 204px;*/
+        }
+        .form_data a{
+            padding:6px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .active{
+            background:red;
+            color:white;
+        }
+        /* .everyday{
+          width: 69px;
+          border: 1px solid red;
+          position: absolute;
+          top: 62px;
+          left: 1004px;
+        } */
+        .everyday p{
+            text-align: center;
+            height:27px;
+            border-bottom:1px solid #ccc;
+            line-height: 29px;
+        }
+        .every_sum{
+            position:absolute;
+            left: 1009px;
+            top:0px;
+            background:#56c272;
+            color:white;
+            width:68px;
+            
+            
+
+        }
+           .last_tr{
+            position:absolute;
+            left: 1078px;
+            top:0px;
+            background:#5bc0de;
+            color:white;
+            width: 90px;
+              
+        }
+        .every_sum td{
+            border-left:none;
+            border-right:none;
+        }
+        h3 span{
+            font-size: 14px;
+            color:blue;
+            margin-right:50px;
+            padding:2px;
+            border:1px solid green;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+        h3 span:hover{
+            background:red;
+        }
+        .top{
+        	width:100px;
+        	text-align: right;
+        	
+        }
+        .top a{
+        	color: white;
+        }
+        .last_tr,.z_c,.j_s,.y_d,.every_sum{
+        	visibility: hidden;
+        }
+        .every_sum,.last_tr{
+        	/*display: none;*/
+        }
+    </style>
+</head>
+<body>
+	<div class='tabs_cc tabs_ywc j_q top'><a href="">2019年7月<br/>串串产量表</a></div>
+
+<header id="head" class='clearfix'>
+	<div class='tabs_cc tabs_wdx j_q active'>杨文常</div>
+	
+    <div class='tabs_cc tabs_ywc j_q'>陈金凤</div>
+ 
+   <!-- <div class='form_data '><a href="data.html" class='j_q '>数据单</a>-->
+    </div>
+    <div id='times' class='j_g'></div>
+    <div class='tabs_cc tabs_wdx j_q ' id='gly'>查看更多...</div>
+</header>
+<table id="CC_Tab">
+
+</table>
+<!-- <div id="each_total">
+    <div class='niu_du'></div>
+</div>
+<div class="everyday" id="everyday">
+    <p class='day day'>每天工资</p>
+
+</div>-->
+</body>
+<script src='data.js'></script>
+<script> 
+	/* */
+	
+    var arr=[];
+    //CC_DATAS0  ywc
+    //加载外部的数据
+
+    var CC_DATA={
+        //554
+        "name":[
+            '日期/\名称',
+            '牛肚','虾','海带','豆腐','鹅郡',
+            '鸭郡','黑毛肚','凤爪','豆皮','藕',
+            '笋子','木耳','土豆','鱿鱼','香菇',
+            '山竹笋','鸭掌','牛肉','鸭心','魔芋'
+        ],
+    }
+    arr.push(CC_DATAS0);
+    arr.push(CC_DATAS1);
+   
+    //console.log(arr)
+    var CC=document.getElementById('head');
+    var allCC=CC.getElementsByTagName('div');
+
+    var CC_Tab=document.getElementById('CC_Tab');
+    var each_total=document.getElementById('each_total');
+
+
+    var str="";
+    for(var i in CC_DATA.name){
+        str+="<th>"+CC_DATA.name[i]+"</th>"
+    }
+    CC_Tab.innerHTML="<tr>"+str+"</tr>";
+    var ts=""
+    for(var j in CC_DATAS0){
+        ts+="<tr><td>"+j+"</td>"
+        for(var k=0;k<CC_DATAS0[j].length;k++){
+            ts+="<td class='list"+k+"'>"+CC_DATAS0[j][k]+"</td>"
+        }
+        "</tr>"
+    }
+    CC_Tab.innerHTML+=ts
+
+    window.onload=function(){
+        obj.init()
+        fn()
+        //     ftime()
+        //     var nowTds=''
+        //     var dd = ''
+        //   function ftime(){
+        //     dd = new Date().getDate();
+        //     nowTds=document.querySelectorAll('p');
+        //      //console.log(nowTds);
+        //      //console.log(nowTds[dd].innerHTML)
+        //      nowTds[dd].style.background='red'
+        //   }
+        for(var i=0;i<allCC.length-2;i++){
+            allCC[i].index=i;
+            allCC[i].onclick=function(){
+
+                //console.log(nowTds[2].innerHTML)
+
+                for(var k=0;k<allCC.length-1;k++){
+                    allCC[k].className='j_q';
+
+
+                }
+                this.className='active';
+
+                CC_Tab.innerHTML="";
+                var str="";
+                for(var i in CC_DATA.name){
+                    str+="<th>"+CC_DATA.name[i]+"</th>"
+                }
+                CC_Tab.innerHTML="<tr>"+str+"</tr>";
+                var ts=""
+                var tem=arr[this.index];
+                for(var j in tem){
+                    ts+="<tr><td>"+j+"</td>"
+                    for(var k=0;k<tem[j].length;k++){
+                        ts+="<td class='list"+k+"'>"+tem[j][k]+"</td>"
+                    }
+                    "</tr>"
+                }
+                CC_Tab.innerHTML+=ts
+                fn()
+
+            }
+        }
+        function fn(){
+            Highlight ()
+
+            // fx()
+            var td2=CC_Tab.getElementsByClassName('list0');
+            var td3=CC_Tab.getElementsByClassName('list1');
+            var td4=CC_Tab.getElementsByClassName('list2');
+            var td5=CC_Tab.getElementsByClassName('list3');
+            var td6=CC_Tab.getElementsByClassName('list4');
+            var td7=CC_Tab.getElementsByClassName('list5');
+            var td8=CC_Tab.getElementsByClassName('list6');
+            var td9=CC_Tab.getElementsByClassName('list7');
+            var td10=CC_Tab.getElementsByClassName('list8');
+            var td11=CC_Tab.getElementsByClassName('list9');
+            var td12=CC_Tab.getElementsByClassName('list10');
+            var td13=CC_Tab.getElementsByClassName('list11');
+            var td14=CC_Tab.getElementsByClassName('list12');
+            var td15=CC_Tab.getElementsByClassName('list13');
+            var td16=CC_Tab.getElementsByClassName('list14');
+            var td17=CC_Tab.getElementsByClassName('list15');
+            var td18=CC_Tab.getElementsByClassName('list16');
+            var td19=CC_Tab.getElementsByClassName('list17');
+            var td20=CC_Tab.getElementsByClassName('list18');
+            var td21=CC_Tab.getElementsByClassName('list19');
+            var arrTotal=[];
+            var niudu_total=new Number();
+            var xia_total=new Number();
+            var haidai_total=new Number();
+            var doufu_total=new Number();
+            var erjun_total=new Number();
+            var yajun_total=new Number();
+            var heimaodu_total=new Number();
+            var fengzhua_total=new Number();
+            var doupi_total=new Number();
+            var ou_total=new Number();
+            var sunzi_total=new Number();
+            var muer_total=new Number();
+            var tudou_total=new Number();
+            var youyuxu_total=new Number();
+            var xianggu_total=new Number();
+            var shanzhu_total=new Number();
+            var yazhang_total=new Number();
+            var niurou_total=new Number();
+            var yaxin_total=new Number();
+            var moyu_total=new Number();
+            var dantian=new Array();
+            var dantianjson={
+                "td2":[],
+                "td3":[],
+                "td4":[],
+                "td5":[],
+                "td6":[],
+                "td7":[],
+                "td8":[],
+                "td9":[],
+                "td10":[],
+                "td11":[],
+                "td12":[],
+                "td13":[],
+                "td14":[],
+                "td15":[],
+                "td16":[],
+                "td17":[],
+                "td18":[],
+                "td19":[],
+                "td20":[],
+                "td21":[],
+                
+            };
+
+            for(var i=0;i<td2.length;i++){
+                dantianjson['td2'].push(td2[i].innerHTML)
+
+                niudu_total+=parseFloat(td2[i].innerHTML);
+            }
+
+            //console.log(dantian)
+
+            for(var i=0;i<td3.length;i++){
+                dantianjson['td3'].push(td3[i].innerHTML)
+
+                xia_total+=parseFloat(td3[i].innerHTML);
+            }
+            for(var i=0;i<td4.length;i++){
+                dantianjson['td4'].push(td4[i].innerHTML)
+
+                haidai_total+=parseFloat(td4[i].innerHTML);
+            }
+            for(var i=0;i<td5.length;i++){
+                dantianjson['td5'].push(td5[i].innerHTML)
+
+                doufu_total+=parseFloat(td5[i].innerHTML);
+            }
+            for(var i=0;i<td6.length;i++){
+                dantianjson['td6'].push(td6[i].innerHTML)
+
+                erjun_total+=parseFloat(td6[i].innerHTML);
+            }
+            for(var i=0;i<td7.length;i++){
+                dantianjson['td7'].push(td7[i].innerHTML)
+
+                yajun_total+=parseFloat(td7[i].innerHTML);
+            }
+            for(var i=0;i<td8.length;i++){
+                dantianjson['td8'].push(td8[i].innerHTML)
+
+                heimaodu_total+=parseFloat(td8[i].innerHTML);
+            }
+            for(var i=0;i<td9.length;i++){
+                dantianjson['td9'].push(td9[i].innerHTML)
+
+                fengzhua_total+=parseFloat(td9[i].innerHTML);
+            }
+            for(var i=0;i<td10.length;i++){
+                dantianjson['td10'].push(td10[i].innerHTML)
+
+                doupi_total+=parseFloat(td10[i].innerHTML);
+            }
+            for(var i=0;i<td11.length;i++){
+                dantianjson['td11'].push(td11[i].innerHTML)
+
+                ou_total+=parseFloat(td11[i].innerHTML);
+            }
+
+            for(var i=0;i<td12.length;i++){
+                dantianjson['td12'].push(td12[i].innerHTML)
+
+                sunzi_total+=parseFloat(td12[i].innerHTML);
+            }
+            for(var i=0;i<td13.length;i++){
+                dantianjson['td13'].push(td13[i].innerHTML)
+
+                muer_total+=parseFloat(td13[i].innerHTML);
+            }
+            for(var i=0;i<td14.length;i++){
+                dantianjson['td14'].push(td14[i].innerHTML)
+
+
+                tudou_total+=parseFloat(td14[i].innerHTML);
+            }
+            for(var i=0;i<td15.length;i++){
+                dantianjson['td15'].push(td15[i].innerHTML)
+
+
+                youyuxu_total+=parseFloat(td15[i].innerHTML);
+            }
+ for(var i=0;i<td16.length;i++){
+                dantianjson['td16'].push(td16[i].innerHTML)
+
+
+                xianggu_total+=parseFloat(td16[i].innerHTML);
+            }
+ for(var i=0;i<td17.length;i++){
+                dantianjson['td17'].push(td17[i].innerHTML)
+
+
+                shanzhu_total+=parseFloat(td17[i].innerHTML);
+            }
+ for(var i=0;i<td18.length;i++){
+                dantianjson['td18'].push(td18[i].innerHTML)
+
+
+                yazhang_total+=parseFloat(td18[i].innerHTML);
+            }
+/**/
+ for(var i=0;i<td19.length;i++){
+                dantianjson['td19'].push(td19[i].innerHTML)
+
+
+                niurou_total+=parseFloat(td19[i].innerHTML);
+            }
+  for(var i=0;i<td20.length;i++){
+                dantianjson['td20'].push(td20[i].innerHTML)
+
+
+                yaxin_total+=parseFloat(td20[i].innerHTML);
+            }
+   for(var i=0;i<td21.length;i++){
+                dantianjson['td21'].push(td21[i].innerHTML)
+
+
+                moyu_total+=parseFloat(td21[i].innerHTML);
+            }
+            //------------
+
+            function newarrs(d){
+
+                var sday=new Array();
+                //console.log(dantianjson)
+                for(var i in dantianjson){//td2 td3....
+                    sday.push(dantianjson[i][d])
+                    //console.log(dantianjson[i][1])
+
+                }
+                //每一天的每个产品数：
+                // console.log(arrday1)
+                return sday;
+            }
+
+            function ds(arreveryday){
+                var arrjq=['3分','3分','3分','3分',
+                    '3分','6分','4分','5分','3分','3分','3分','6分','3分','3分','3分','3分','3分','3分','3分','3分']
+                var daytotalst=new Number();
+
+                //console.log(arrday1)
+                var priceTotals=new Array();
+                for(var u=0;u<arreveryday.length;u++){
+                    //每天工资算法
+                    priceTotals.push((arreveryday[u]*20*parseInt(arrjq[u]))/100);
+                }
+                for(var i=0;i<priceTotals.length;i++){
+                    daytotalst+=parseFloat(priceTotals[i])
+                }
+                //console.log( priceTotals)
+                //console.log( daytotalst) //每天总工资
+                return daytotalst;
+            }
+            fx()
+            function fx(){
+                var arrjq=['3分','3分','3分','3分','3分','6分','4分','5分','3分','3分','3分','6分','3分','3分','3分','3分','3分']
+
+                var j=new Number();
+                //everyday.innerHTML="<p class='day day'>每天工资</p>";
+
+                var len=CC_DATAS0;
+                var lens=[]
+                for(var i in len){
+
+                    lens.push(i)
+                }
+
+                var strts="";
+                strts+="<tbody class='every_sum'><tr><td>每天工资</td></tr>"
+                for(var i=0;i<lens.length;i++){
+
+                    j=newarrs(parseInt(i))
+                    //console.log(j)
+                    //console.log(parseInt(i))
+                    //console.log(ds(j))
+
+                    //everyday.innerHTML+="<p class='day day"+parseInt(i)+"'>"+fixNumberDecimalDigits(ds(j))+"</p>"
+                    strts+="<tr class='day '><td class='today"+parseInt(i+1)+"'>"+fixNumberDecimalDigits(ds(j))+"</td></tr>"
+                }
+                strts+='</tbody>'
+                CC_Tab.innerHTML+=strts;
+            }
+            //Math.round(ds(j))
+            //var j=newarrs(0)//第一天
+            //console.log(ds(j)) ///单天总工资
+            //<p class='day day1'>84.7</p>
+
+
+            //--------------------------
+            arrTotal.push(niudu_total)
+            arrTotal.push(xia_total)
+            arrTotal.push(haidai_total)
+            arrTotal.push(doufu_total)
+            arrTotal.push(erjun_total)
+            arrTotal.push(yajun_total)
+            arrTotal.push(heimaodu_total)
+            arrTotal.push(fengzhua_total)
+            arrTotal.push(doupi_total)
+            arrTotal.push(ou_total)
+            arrTotal.push(sunzi_total)
+            arrTotal.push(muer_total)
+            arrTotal.push(tudou_total)
+            arrTotal.push(youyuxu_total)
+            arrTotal.push(xianggu_total)
+            arrTotal.push(shanzhu_total)
+            arrTotal.push(yazhang_total)
+            arrTotal.push(niurou_total)
+            arrTotal.push(yaxin_total)
+            arrTotal.push(moyu_total)
+            var str_z='';
+            var str_num=new Number;
+            for(var i=0;i<arrTotal.length;i++){
+                str_z+="<th>"+arrTotal[i]+"</th>";
+                str_num+=arrTotal[i];
+            }
+
+            CC_Tab.innerHTML+="<tr class='z_c'><th>单总</th>"+str_z+"<th id='all_total' class='all_total'></th></tr>"
+            var all_total=document.getElementById('all_total');
+ 
+            all_total.innerHTML=parseFloat(str_num);
+            var arrjq=['3分','3分','3分','3分','3分','6分','4分','5分','3分','3分','3分','6分','3分','3分','3分','3分','3分','3分','3分','3分']
+            var str_jq='';
+            for(var i=0;i<arrjq.length;i++){
+                str_jq+="<th>"+arrjq[i]+"</th>"
+            }
+            CC_Tab.innerHTML+="<tr class='j_s'><th>工价</th>"+str_jq+"</tr>"
+            //console.log(arrTotal)
+            var priceTotal=new Array();
+            for(var u=0;u<arrTotal.length;u++){
+                priceTotal.push((arrTotal[u]*parseInt(arrjq[u]))/100);
+            }
+            //console.log(priceTotal)
+            //总工资一栏
+            var str_price_total='';
+            var str_salary=new Number();
+            for(var i=0;i<priceTotal.length;i++){
+            	//单总工资算法：
+                str_price_total+="<th>"+(priceTotal[i]*20).toFixed(2)+"</th>";
+                str_salary+=priceTotal[i]*20; //总工资算法：
+                //console.log(priceTotal[i]*20)
+            }
+            //console.log(str_price_total)
+            CC_Tab.innerHTML+="<tr class='y_d'><th>工资</th>"+str_price_total+"<td id='end_salary' class='end_salary all_total'>3000</td></tr>"
+           
+            var end_salary=document.getElementById('end_salary');
+
+ end_salary.innerHTML=str_salary.toFixed(2); //全总工资          //end_salary.innerHTML=fixNumberDecimalDigits(str_salary, 2);//2表示保留2位小数
+             //console.log(str_salary)
+            var each_tr=CC_Tab.getElementsByTagName("tr");
+            var each_total=[]; //ha
+            var len=CC_DATAS0;
+            var lens=[]
+            for(var i in len){
+
+                lens.push(i)
+            }
+            //console.log(lens.length)
+            //for(var i=1;i<each_tr.length-13;i++){
+            for(var i=1;i<lens.length+1;i++){
+                var each_td=each_tr[i].getElementsByTagName("td");
+                let num_total=new Number();
+                for(var j=1;j<each_td.length;j++){
+                    //每天总串数算法：
+                    num_total+=parseFloat(each_td[j].innerHTML)*20
+                }
+                //每天的总数
+                each_total.push(num_total)
+               // console.log(num_total)
+            }
+            //
+            var last_tr='';
+            var last_s=new Number();
+            for(var i=0;i<1;i++){
+                last_tr+="<tbody class='last_tr'><tr><td>每天总串数</td></tr>"
+                for(var j=0;j<each_total.length;j++){
+                    last_tr+="<tr class='each_total'><td class='today"+parseInt(j+1)+"'>"+each_total[j]+"</td></tr>"
+                    last_s+=parseFloat(each_total[j])
+                }
+                last_tr+='<tr ><td>'+last_s+'</td></tr>';
+                last_tr+='</tbody>'
+                CC_Tab.innerHTML+=last_tr
+                 //console.log(last_s)
+                 
+                 
+            }
+            var everySum=document.querySelector('.every_sum');
+            var lastTr=document.querySelector('.last_tr');
+            var everySumTd=document.querySelectorAll('td');
+            var lastTrTd=document.querySelectorAll('td');
+            var d = new Date().getDate();
+            for(var i=0;i<everySumTd.length;i++){
+                if(everySumTd[i].className=='today'+d){
+                    everySumTd[i].parentNode.style.background='red';
+                    everySumTd[i].parentNode.style.color='white';
+                }
+
+            }
+        }
+     var gly=document.getElementById('gly');
+     
+     
+     var every_sum=document.getElementsByClassName('every_sum')[0];
+	    gly.onclick=function(){
+	    	var last_tr=document.getElementsByClassName('last_tr')[0];
+	    	var every_sum=document.getElementsByClassName('every_sum')[0];
+	    	var z_c=document.getElementsByClassName('z_c')[0];
+     var j_s=document.getElementsByClassName('j_s')[0];
+     var y_d=document.getElementsByClassName('y_d')[0];
+	     	 //.last_tr,.z_c,.j_s,.y_d,.every_sum
+	     	if(window.prompt('请输入权限:')==2048){
+	     		console.log(last_tr)
+	     		 last_tr.style.visibility='visible';
+	     	  z_c.style.visibility='visible';
+	     	 j_s.style.visibility='visible';
+	     	 y_d.style.visibility='visible';
+	     	 every_sum.style.visibility='visible';
+	     	}else{
+	     		alert('没有权限.....')
+	     	}
+	     	
+	     	
+	     }
+
+
+    }//window.onload
+    //函数封装 0.1+0.2=0.3333的问题
+    function fixNumberDecimalDigits(number, digits) {
+        var formatNumber = parseFloat(number);
+        if (isNaN(formatNumber)) return false;
+        var digits = digits || 2;
+        formatNumber = formatNumber.toString();
+        var reg = new RegExp('([0-9]+.[0-9]{' + digits +'})[0-9]*');
+        var stringNumber = formatNumber.replace(reg, "$1");
+        var decimalPosition = stringNumber.indexOf('.');
+        if (decimalPosition < 0) {
+            decimalPosition = stringNumber.length;
+            stringNumber += '.';
+        }
+        while (stringNumber.length <= decimalPosition + digits) {
+            stringNumber += '0';
+        }
+        return stringNumber;
+
+
+    }
+    //var a = 0.1,
+    //b = 0.2,
+    //c = a + b ;
+    //console.log(fixNumberDecimalDigits(str_salary, 1))
+    //当天颜色高亮 #f0ad4e
+    function Highlight (){
+        var d = new Date().getDate();
+        var nowTd=document.querySelectorAll('td');
+        var nowTds=document.querySelectorAll('p');
+
+
+        //console.log(everySum)
+        //console.log(nowTd.length)
+        for(var i=0;i<nowTd.length;i++){
+            if(nowTd[i].innerHTML==d+'号'){
+                nowTd[i].parentNode.style.background='red';
+                nowTd[i].parentNode.style.color='white';
+
+            }
+            //console.log(nowTd[i].className)
+
+        }
+    }
+    //倒计时：
+    var obj={
+        times:'Jan 24,2020 0:0:0',
+        oInput:',',
+        timer:null,
+        newDate:null,
+        olddate:null,
+        chaDate:null,
+        intervel:1000,
+        str:'',
+        init:function(){
+            //this.oInput=document.getElementsByTagName('input');
+            this.timer=setInterval(this.fnMove.bind(this),500);
+        },fnMove:function(){
+            //this.oInput[1].value='';
+            this.newDate=new Date(this.times);
+            //this.newDate=new Date(this.oInput[0].value);
+            this.olddate=new Date();
+            this.chaDate=Math.floor((this.newDate-this.olddate)/1000);
+            var d=Math.floor(this.chaDate/86400);
+            var h=Math.floor(this.chaDate%86400/3600);
+            var m=Math.floor(this.chaDate%86400%3600/60);
+            var s=Math.floor(this.chaDate%60);
+            this.str="距离2020年过年还有："+this.toFn(d)+'天'+this.toFn(h)+'时'+this.toFn(m)+'分'+this.toFn(s)+'秒';
+            //this.oInput[1].value+=this.str;
+            //console.log(this.str)
+            times.innerHTML=this.str;
+        },
+        toFn:function(n){
+            return n<10?'0'+n:''+n;
+        }
+    };
+
+    //setInterval(function(){
+
+    //},1000)
+    /*
+    一月 Jan. January
+    二月 Feb. February
+    三月 Mar. March
+    四月 Apr. April
+    五月 May. May
+    六月 June. June
+    七月 July. July
+    八月 Aug. Aguest
+    九月 Sept. September
+    十月 Oct. October
+    十一月 Nov. November
+    十二月 Dec. December
+    */
+
+
+
+</script>
+</html>
